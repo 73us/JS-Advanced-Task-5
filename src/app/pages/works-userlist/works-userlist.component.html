@@ -1,0 +1,60 @@
+<div class="container">
+    <!-- FORM PART START -->
+    <div class="left">
+        <fieldset>
+            <legend>Login</legend>
+            <input type="text" id="enterLogin" placeholder="Enter login" [(ngModel)]="userLogin">
+        </fieldset>
+        <fieldset>
+            <legend>Password</legend>
+            <input type="password" id="enterPassword" placeholder="Enter password" [(ngModel)]="userPassword">
+        </fieldset>
+        <fieldset>
+            <legend>Email address</legend>
+            <input type="email" id="enterEmail" placeholder="Enter email" [(ngModel)]="userEmail">
+            <button *ngIf="!editStatus" (click)="addUser()" class="add-btn"
+                [disabled]="!userLogin || !userPassword || !userEmail">Add user</button>
+            <button *ngIf="editStatus" (click)="updateUser()" class="add-btn">Save user</button>
+        </fieldset>
+    </div>
+    <!-- FORM PART END -->
+
+    <!-- TABLE PART START -->
+    <table class="right">
+        <!-- table head start -->
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Login</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <!-- table head end -->
+
+        <!-- table body start -->
+        <ng-container *ngIf="userList.length === 0">
+            <tr>
+                <td class="block-empty" colspan="6">No records found</td>
+            </tr>
+        </ng-container>
+
+        <tbody class="block-name" *ngFor="let user of userList; index as i">
+            <tr>
+                <td>{{ i + 1 }}</td>
+                <td>{{ user.login }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.email }}</td>
+                <td><button class="edit-btn" (click)="editUser(i)">Edit</button></td>
+                <td><button class="delete-btn" (click)="deleteUser(i)" [disabled]="editStatus">Delete</button></td>
+            </tr>
+            
+        </tbody>
+
+        <!-- table body end -->
+
+    </table>
+    <!-- TABLE PART END -->
+</div>

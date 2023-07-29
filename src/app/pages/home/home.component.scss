@@ -1,0 +1,56 @@
+@import "../../styles/variables";
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  .content {
+    width: 80%;
+    height: 45vh;
+    display: flex;
+    justify-content: space-between;
+    .item-card {
+      width: 30%;
+      height: 100%;
+      background-color: rgb(245, 245, 245);
+      border: 2px solid $color2;
+      border-radius: 5px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
+      .card-img {
+        // height: 70%;
+        width: 100%;
+        background-size: contain;
+        // background-color: yellow;
+      }
+      .card-title {
+        font-weight: bold;
+        color: red;
+        text-align: center;
+        width: 100%;
+        margin-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: 3px solid $color2;
+      }
+      .btn-green {
+        margin: 20px 0;
+        height: 50px;
+        width: 80%;
+        border-radius: 5px;
+        background-color: $btnGreen;
+        color: white;
+        border: none;
+      }
+      .btn-green:hover {
+        cursor: pointer;
+        background-color: $btnGreenHover;
+      }
+      .btn-green:active {
+        outline: 3px solid $btnGreenActive;
+      }
+    }
+  }
+}

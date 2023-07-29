@@ -1,0 +1,54 @@
+<table>
+    <!-- table head start -->
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Task</th>
+            <th>Check</th>
+            <th>DONE/IN PROGRESS</th>
+            <th>Edit</th>
+            <th>DELETE</th>
+        </tr>
+    </thead>
+    <!-- table head end -->
+
+    <!-- table body start -->
+    <tbody>
+        <!-- no tasks start -->
+        <ng-container *ngIf="taskList.length === 0">
+            <tr class="edit-line">
+                <td class="block-empty" colspan="6">No task added yet!</td>
+            </tr>
+        </ng-container>
+        <!-- no tasks end -->
+
+        <!-- tasks list start -->
+        <tr *ngFor="let task of taskList; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ task.name }}</td>
+            <td><input type="checkbox" (click)="checkTask(i)" [disabled]="editStatus"></td>
+            <ng-container *ngIf="task.status; else inProgress">
+                <td class="done">Done</td>
+            </ng-container>
+            <ng-template #inProgress>
+                <td class="inProg">In Progress</td>
+            </ng-template>
+            <td><button class="edit-btn" (click)="editTask(i)" [disabled]="task.status">Edit</button></td>
+            <td><button class="delete-btn" (click)="deleteTask(i)" [disabled]="!task.status">Delete</button>
+            </td>
+        </tr>
+        <!-- tasks list end -->
+
+        <!-- update task start -->
+        <ng-container *ngIf="editStatus">
+            <tr class="edit-line">
+                <td colspan="5" class="edit-area">
+                    <input type="text" [(ngModel)]="taskNameEdit">
+                    <button *ngIf="editStatus" (click)="updateTask()" class="save-btn">Save</button>
+                </td>
+            </tr>
+        </ng-container>
+        <!-- update task end -->
+    </tbody>
+    <!-- table body end -->
+</table>

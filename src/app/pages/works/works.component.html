@@ -1,0 +1,16 @@
+<div class="container-fluid container-fix">
+    <nav class="menu">
+        <div class="nav-navig">Last works >>></div>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link" [routerLink]="[ 'cenzor' ]" routerLinkActive="active" type="button">Cenzor</button>
+            <button class="nav-link" [routerLink]="[ 'userlist' ]" routerLinkActive="active"
+                type="button">Users</button>
+            <button class="nav-link" [routerLink]="[ 'tasklist' ]" routerLinkActive="active" type="button">Task</button>
+        </div>
+        <div class="nav-back-to">
+            <button class="nav-back-to-link" [routerLink]="[ '' ]" type="button">Back to >>>
+                Home</button>
+        </div>
+    </nav>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,50 @@
+@import "../../styles/variables";
+
+.d-f-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-fix {
+  padding: 0;
+}
+
+.menu {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: end;
+  height: 50px;
+  .nav-navig {
+    height: 40px;
+    width: 10%;
+    padding-left: 1%;
+    @extend .d-f-center;
+    justify-content: start;
+    border-bottom: 1px solid $color2;
+  }
+  .nav {
+    height: 40px;
+    width: 30%;
+    .active{
+        color: green;
+    }
+  }
+  .nav-tabs {
+    border-color: $color2;
+  }
+  .nav-back-to {
+    height: 40px;
+    width: 60%;
+    padding-right: 1%;
+    display: flex;
+    justify-content: end;
+    border-bottom: 1px solid $color2;
+    @extend .d-f-center;
+    .nav-back-to-link {
+      background-color: transparent;
+      border: none;
+      color: red;
+    }
+  }
+}

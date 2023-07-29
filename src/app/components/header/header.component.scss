@@ -1,0 +1,10 @@
+@import "../../styles/variables";
+
+h1 {
+  height: 100px;
+  font-size: 50px;
+  border-bottom: 3px solid $color2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
